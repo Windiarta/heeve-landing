@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import TransitionProvider from "./components/TransitionProvider";
+import ScrollProgress from "./components/ScrollProgress";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,6 +30,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} forcedTheme="dark">
           <TransitionProvider>
+            <ScrollProgress />
             {children}
           </TransitionProvider>
         </ThemeProvider>

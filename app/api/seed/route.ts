@@ -48,6 +48,17 @@ export async function POST() {
       description: 'Heeve adalah software house yang mengkhususkan diri dalam menciptakan website inovatif dan ramah pengguna.',
       ctaText: 'Dapatkan Konsultasi Gratis',
       ctaLink: '#contact',
+      services: [
+        { _type: 'object', title: 'Pengembangan Website', desc: 'Company profile, landing page, hingga web app kustom.' },
+        { _type: 'object', title: 'E-commerce', desc: 'Pembuatan toko online dan optimasinya.' },
+        { _type: 'object', title: 'SEO & Performa', desc: 'Tingkatkan peringkat dan kecepatan loading.' },
+      ],
+      aboutPoints: [
+        'Tim ahli dengan delivery yang solid',
+        'Stack modern dan best practices',
+        'Komunikasi transparan',
+        'Fokus pada hasil',
+      ],
     })
 
     portfolios.forEach((doc) => tx.createOrReplace(doc))

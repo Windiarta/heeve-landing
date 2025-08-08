@@ -36,5 +36,20 @@ export default defineType({
       type: 'image',
       options: {hotspot: true},
     }),
+    defineField({
+      name: 'services',
+      title: 'Services Items',
+      type: 'array',
+      of: [{ type: 'object', fields: [
+        { name: 'title', type: 'string', title: 'Title', validation: Rule => Rule.required() },
+        { name: 'desc', type: 'text', title: 'Description', rows: 2, validation: Rule => Rule.required() },
+      ] }],
+    }),
+    defineField({
+      name: 'aboutPoints',
+      title: 'About Points',
+      type: 'array',
+      of: [{ type: 'string' }],
+    }),
   ],
 }) 

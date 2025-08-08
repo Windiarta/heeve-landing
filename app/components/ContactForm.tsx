@@ -44,9 +44,9 @@ export default function ContactForm({ copy = {} as ContactCopy }: { copy?: Conta
   }
 
   return (
-    <section className="py-16 md:py-24 bg-white dark:bg-black px-4 md:px-16" id="contact">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-900 dark:text-white">{copy.title ?? 'Hubungi Kami'}</h2>
-      <form onSubmit={handleSubmit} className="max-w-xl mx-auto bg-gray-50 dark:bg-gray-900 rounded-xl shadow-lg p-8 flex flex-col gap-6 text-gray-900 dark:text-gray-100">
+    <section className="py-16 md:py-24 bg-transparent px-4 md:px-16 scroll-mt-24" id="contact">
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">{copy.title ?? 'Hubungi Kami'}</h2>
+      <form onSubmit={handleSubmit} className="max-w-2xl mx-auto bg-white/5 rounded-xl shadow-lg p-8 flex flex-col gap-6 text-gray-100 border border-white/10">
         <input
           type="text"
           name="name"

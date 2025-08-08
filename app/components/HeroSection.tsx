@@ -16,17 +16,17 @@ interface HeroSectionProps {
 
 export default function HeroSection({ title, description, ctaText, ctaLink, heroImage }: HeroSectionProps) {
   return (
-    <section className="relative flex flex-col-reverse md:flex-row items-center justify-between gap-8 py-16 md:py-24 px-4 md:px-16 bg-gradient-to-br from-blue-50 to-white dark:from-blue-950/30 dark:to-transparent">
+    <section id="home" className="relative flex flex-col-reverse md:flex-row items-center justify-between gap-8 py-16 md:py-24 px-4 md:px-16 bg-gradient-to-br from-blue-950/40 to-transparent">
       <motion.div
-        className="flex-1 text-center md:text-left text-gray-900 dark:text-gray-100"
+        className="flex-1 text-center md:text-left text-gray-100"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.1 }}
       >
-        <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white mb-6 leading-tight drop-shadow-sm">
+        <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight drop-shadow-sm">
           {title}
         </h1>
-        <p className="text-lg md:text-2xl text-gray-700 dark:text-gray-200 mb-8 max-w-xl mx-auto md:mx-0">
+        <p className="text-lg md:text-2xl text-gray-200 mb-8 max-w-xl mx-auto md:mx-0">
           {description}
         </p>
         <motion.a

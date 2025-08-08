@@ -31,7 +31,9 @@ export async function generateMetadata(): Promise<Metadata> {
 
 async function getHomepage() {
   return client.fetch(groq`*[_type == "homepage"][0]{
-    title, description, ctaText, ctaLink, heroImage
+    title, description, ctaText, ctaLink, heroImage,
+    services[]{title, desc},
+    aboutPoints
   }`)
 }
 
@@ -81,8 +83,15 @@ export default async function HomePage({ params }: { params: Promise<{ locale?: 
           ctaLink={homepage?.ctaLink || '#contact'}
           heroImage={homepage?.heroImage ? { src: urlForImage(homepage.heroImage).width(480).height(480).url(), alt: homepage.title } : undefined}
         />
-        <AboutSection title={dict.about.title} content={dict.about.content} points={dict.about.points} />
-        <ServicesSection title={dict.services.title} items={dict.services.items} />
+        <AboutSection
+          title={dict.about.title}
+          content={dict.about.content}
+          points={(homepage?.aboutPoints as string[] | undefined) ?? dict.about.points}
+        />
+        <ServicesSection
+          title={dict.services.title}
+          items={(homepage?.services as { title: string; desc: string }[] | undefined) ?? dict.services.items}
+        />
         <PortfolioSection projects={portfolio} title={dict.portfolio.title} viewText={dict.portfolio.view} />
         <TestimonialsSection testimonials={testimonials} title={dict.testimonials.title} />
         <ContactForm copy={{ title: dict.contact.title, name: dict.contact.name, email: dict.contact.email, message: dict.contact.message, send: dict.contact.send, sending: dict.contact.sending, success: dict.contact.success }} />
