@@ -100,7 +100,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale?: 
         <TestimonialsSection testimonials={testimonials} title={dict.testimonials.title} />
         <ContactForm locale={locale} copy={{ title: dict.contact.title, name: dict.contact.name, phone: dict.contact.phone, message: dict.contact.message, send: dict.contact.send, sending: dict.contact.sending, success: dict.contact.success }} />
       </main>
-      <Footer contactEmail={dict.contactEmail} whatsapp={dict.contactWhatsapp} />
+      <Footer />
     </>
   )
 }

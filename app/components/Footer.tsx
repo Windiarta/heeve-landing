@@ -1,17 +1,15 @@
 import { FaInstagram, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
 
-interface FooterProps {
-  contactEmail: string;
-  whatsapp?: string;
-}
-
-export default function Footer({ contactEmail, whatsapp }: FooterProps) {
+export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'info@heeve.id'
+  const instagram = process.env.NEXT_PUBLIC_CONTACT_INSTAGRAM || 'https://instagram.com/heeve.id'
+  const whatsapp = process.env.NEXT_PUBLIC_CONTACT_WHATSAPP
   
   const socialLinks = [
     { 
       name: 'Instagram', 
-      href: 'https://instagram.com/heeve.id',
+      href: instagram,
       icon: <FaInstagram className="w-5 h-5" />
     },
     { 

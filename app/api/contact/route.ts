@@ -6,7 +6,7 @@ export async function POST(req: Request) {
   const { name, phone, email, message, locale } = await req.json()
   const effectiveLocale: Locale = isLocale(locale) ? locale : 'id'
   const dict = await getDictionary(effectiveLocale)
-  const recipient = dict.contactEmail
+  const recipient = process.env.CONTACT_EMAIL || dict.contactEmail
   const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown'
   const userAgent = req.headers.get('user-agent') || 'unknown'
 
