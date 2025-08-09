@@ -7,22 +7,26 @@ const en = {
     defaultDesc: "Heeve is a software house specializing in innovative, user-friendly websites.",
     cta: "Get Free Consultation",
   },
+  // Contact email for EN locale
+  contactEmail: "info@heeve.id",
+  // Optional WhatsApp phone for EN locale (E.164 format without +). Example: 6281234567890
+  contactWhatsapp: "6281234567890",
   about: {
     title: "About Heeve",
-    content: "We help businesses craft fast, accessible and beautiful web experiences.",
+    content: "We help businesses deliver fast, responsive, secure, and captivating web experiences, blending modern technology with user-focused design.",
     points: [
-      "Expert team with solid delivery",
-      "Modern stacks and best practices",
-      "Transparent communication",
-      "Result-oriented approach",
+      "Expert team with a consistent and high-quality delivery track record",
+      "Transparent communication at every stage of development",
+      "Modern technology and stack with best practice implementation",
+      "Results-oriented, delivering real value to your business",
     ],
   },
   services: {
     title: "Our Services",
     items: [
-      { title: "Website Development", desc: "Corporate, landing pages, and custom web apps." },
-      { title: "E-commerce", desc: "Online store setup and optimization." },
-      { title: "SEO & Performance", desc: "Improve rankings and loading speed." },
+      { title: "Website Development", desc: "Corporate, landing pages, POS, and custom web apps." },
+      { title: "Mobile App Development", desc: "Custom mobile app development (Android & iOS) for your business needs." },
+      { title: "AI-Based System", desc: "AI-based system development for automation and efficiency improvement." },
     ],
   },
   portfolio: { title: "Project Portfolio", view: "View Project" },
@@ -30,7 +34,7 @@ const en = {
   contact: {
     title: "Contact Us",
     name: "Name",
-    email: "Email",
+    phone: "Phone number",
     message: "Message",
     send: "Send Message",
     sending: "Sending...",
@@ -42,25 +46,29 @@ const id = {
   nav: { portfolio: "Portofolio", testimonials: "Testimoni", contact: "Kontak" },
   hero: {
     defaultTitle: "Wujudkan Website Impian Anda Bersama Heeve",
-    defaultDesc: "Heeve adalah software house yang mengkhususkan diri dalam menciptakan website inovatif dan ramah pengguna.",
+    defaultDesc: "Heeve is a software house focused on developing innovative, intuitive, and user-experience-oriented websites, helping businesses deliver effective and sustainable digital solutions.",
     cta: "Dapatkan Konsultasi Gratis",
   },
+  // Contact email for ID locale
+  contactEmail: "info@heeve.id",
+  // Optional WhatsApp phone for ID locale (E.164 format without +). Example: 6281234567890
+  contactWhatsapp: "6281234567890",
   about: {
     title: "Tentang Heeve",
-    content: "Kami membantu bisnis membangun pengalaman web yang cepat, aksesibel, dan indah.",
+    content: "Kami membantu bisnis menghadirkan pengalaman web yang cepat, responsif, aman, dan memikat, memadukan teknologi modern dengan desain yang berfokus pada pengguna.",
     points: [
-      "Tim ahli dengan delivery yang solid",
-      "Stack modern dan best practices",
-      "Komunikasi transparan",
-      "Fokus pada hasil",
+      "Tim ahli dengan rekam jejak delivery yang konsisten dan berkualitas",
+      "Komunikasi transparan di setiap tahap pengembangan",
+      "Teknologi dan stack modern dengan penerapan best practices",
+      "Berorientasi pada hasil yang memberikan nilai nyata bagi bisnis Anda",
     ],
   },
   services: {
     title: "Layanan Kami",
     items: [
-      { title: "Pengembangan Website", desc: "Company profile, landing page, hingga web app kustom." },
-      { title: "E-commerce", desc: "Pembuatan toko online dan optimasinya." },
-      { title: "SEO & Performa", desc: "Tingkatkan peringkat dan kecepatan loading." },
+      { title: "Website", desc: "Company profile, landing page, POS, hingga web app kustom." },
+      { title: "Aplikasi Mobile", desc: "Pembuatan aplikasi mobile (Android & iOS) untuk kebutuhan bisnis Anda." },
+      { title: "Sistem Berbasis AI", desc: "Pengembangan sistem berbasis AI untuk otomatisasi dan peningkatan efisiensi." },
     ],
   },
   portfolio: { title: "Portofolio Proyek", view: "Lihat Proyek" },
@@ -68,7 +76,7 @@ const id = {
   contact: {
     title: "Hubungi Kami",
     name: "Nama",
-    email: "Email",
+    phone: "No. HP",
     message: "Pesan",
     send: "Kirim Pesan",
     sending: "Mengirim...",

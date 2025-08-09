@@ -27,7 +27,10 @@ export default function Header() {
     <header className="fixed top-0 left-0 w-full z-30 bg-black/60 backdrop-blur border-b border-white/10">
       <nav className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-12 py-3">
         <Link href={`/${currentLocale}`} className="text-2xl font-extrabold text-white tracking-tight">
-          Heeve
+          <span className="inline-flex items-center gap-2">
+            <img src="/heeve.svg" alt="Heeve Logo" className="w-7 h-7 inline-block" />
+            Heeve
+          </span>
         </Link>
         <div className="flex items-center gap-3">
           <button

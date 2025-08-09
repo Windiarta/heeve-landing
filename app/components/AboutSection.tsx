@@ -20,7 +20,7 @@ export default function AboutSection({ title, content, points }: { title: string
       >
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-white">{title}</h2>
         <p className="text-gray-200 mb-8 leading-relaxed max-w-3xl mx-auto text-center">{content}</p>
-        <motion.ul className="max-w-4xl mx-auto grid sm:grid-cols-2 gap-4 list-disc pl-5 text-gray-100" variants={list} initial="hidden" animate="show">
+        <motion.ul className="max-w-4xl mx-auto grid sm:grid-cols-2 gap-8 list-disc pl-5 text-gray-100" variants={list} initial="hidden" animate="show">
           {points.map((p, idx) => (
             <motion.li key={idx} variants={item}>{p}</motion.li>
           ))}

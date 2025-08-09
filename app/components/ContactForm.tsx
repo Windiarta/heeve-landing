@@ -4,15 +4,15 @@ import { useState } from 'react'
 interface ContactCopy {
   title?: string
   name?: string
-  email?: string
+  phone?: string
   message?: string
   send?: string
   sending?: string
   success?: string
 }
 
-export default function ContactForm({ copy = {} as ContactCopy }: { copy?: ContactCopy }) {
-  const [form, setForm] = useState({ name: '', email: '', message: '' })
+export default function ContactForm({ copy = {} as ContactCopy, locale }: { copy?: ContactCopy, locale?: string }) {
+  const [form, setForm] = useState({ name: '', phone: '', message: '' })
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState('')
@@ -30,11 +30,11 @@ export default function ContactForm({ copy = {} as ContactCopy }: { copy?: Conta
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, locale }),
       })
       if (!res.ok) throw new Error('Gagal mengirim pesan.')
       setSuccess(true)
-      setForm({ name: '', email: '', message: '' })
+      setForm({ name: '', phone: '', message: '' })
   } catch (err) {
       const message = err instanceof Error ? err.message : 'Terjadi kesalahan.'
       setError(message)
@@ -57,10 +57,10 @@ export default function ContactForm({ copy = {} as ContactCopy }: { copy?: Conta
           className="px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-400 outline-none"
         />
         <input
-          type="email"
-          name="email"
-          placeholder={copy.email ?? 'Email'}
-          value={form.email}
+          type="tel"
+          name="phone"
+          placeholder={copy.phone ?? 'No. HP'}
+          value={form.phone}
           onChange={handleChange}
           required
           className="px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-400 outline-none"

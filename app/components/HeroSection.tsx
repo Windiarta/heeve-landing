@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import SmoothScrollLink from './SmoothScrollLink'
 
 interface HeroSectionProps {
   title: string
@@ -29,14 +30,18 @@ export default function HeroSection({ title, description, ctaText, ctaLink, hero
         <p className="text-lg md:text-2xl text-gray-200 mb-8 max-w-xl mx-auto md:mx-0">
           {description}
         </p>
-        <motion.a
-          href={ctaLink}
-          className="inline-block px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-700 transition-colors text-lg"
+        <motion.div
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.97 }}
+          className="inline-block"
         >
-          {ctaText}
-        </motion.a>
+          <SmoothScrollLink
+            href={ctaLink}
+            className="inline-block px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-700 transition-colors text-lg"
+          >
+            {ctaText}
+          </SmoothScrollLink>
+        </motion.div>
       </motion.div>
       {heroImage?.src && (
         <motion.div
@@ -48,9 +53,9 @@ export default function HeroSection({ title, description, ctaText, ctaLink, hero
           <Image
             src={heroImage.src}
             alt={heroImage.alt || 'Heeve Hero'}
-            width={480}
-            height={480}
-            className="rounded-2xl shadow-2xl object-cover w-[60vw] max-w-[320px] h-[60vw] max-h-[320px] md:w-[400px] md:h-[400px]"
+            width={800}
+            height={800}
+            // className="rounded-2xl shadow-2xl object-cover w-[60vw] max-w-[320px] h-[60vw] max-h-[320px] md:w-[480px] md:h-[480px]"
             priority
           />
         </motion.div>
