@@ -13,6 +13,7 @@ import { urlForImage } from '../../sanity/lib/image'
 import { getDictionary } from '../i18n/dictionaries'
 import { Locale, isLocale } from '../i18n/config'
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
+import heroDefault from '../assets/hero.png'
 
 export const revalidate = 60
 
@@ -84,7 +85,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale?: 
           heroImage={
             homepage?.heroImage
               ? { src: urlForImage(homepage.heroImage).width(480).height(480).url(), alt: homepage.title }
-              : { src: require('../assets/hero.png').default, alt: '' }
+              : { src: heroDefault.src, alt: '' }
           }
         />
         <AboutSection

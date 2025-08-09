@@ -145,7 +145,7 @@ export async function POST(req: Request) {
             try {
               const text = await res.text()
               console.error('Google Forms response body (truncated)', text.slice(0, 500))
-            } catch (e) {
+            } catch {
               // ignore
             }
           }
