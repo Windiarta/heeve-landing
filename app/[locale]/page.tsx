@@ -75,13 +75,17 @@ export default async function HomePage({ params }: { params: Promise<{ locale?: 
   return (
     <>
       <Header />
-      <main className="pt-24">
+      <main>
         <HeroSection
           title={homepage?.title || dict.hero.defaultTitle}
           description={homepage?.description || dict.hero.defaultDesc}
           ctaText={homepage?.ctaText || dict.hero.cta}
           ctaLink={homepage?.ctaLink || '#contact'}
-          heroImage={homepage?.heroImage ? { src: urlForImage(homepage.heroImage).width(480).height(480).url(), alt: homepage.title } : undefined}
+          heroImage={
+            homepage?.heroImage
+              ? { src: urlForImage(homepage.heroImage).width(480).height(480).url(), alt: homepage.title }
+              : { src: require('../assets/hero.png').default, alt: '' }
+          }
         />
         <AboutSection
           title={dict.about.title}
@@ -94,9 +98,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale?: 
         />
         <PortfolioSection projects={portfolio} title={dict.portfolio.title} viewText={dict.portfolio.view} />
         <TestimonialsSection testimonials={testimonials} title={dict.testimonials.title} />
-        <ContactForm copy={{ title: dict.contact.title, name: dict.contact.name, email: dict.contact.email, message: dict.contact.message, send: dict.contact.send, sending: dict.contact.sending, success: dict.contact.success }} />
+        <ContactForm locale={locale} copy={{ title: dict.contact.title, name: dict.contact.name, phone: dict.contact.phone, message: dict.contact.message, send: dict.contact.send, sending: dict.contact.sending, success: dict.contact.success }} />
       </main>
-      <Footer />
+      <Footer contactEmail={dict.contactEmail} whatsapp={dict.contactWhatsapp} />
     </>
   )
 }
