@@ -13,7 +13,7 @@ const en = {
   contactWhatsapp: "6281234567890",
   about: {
     title: "About Heeve",
-    content: "We help businesses deliver fast, responsive, secure, and captivating web experiences, blending modern technology with user-focused design.",
+    content: "Heeve is a software house focused on developing innovative, intuitive, and user-experience-oriented websites, helping businesses deliver effective and sustainable digital solutions.",
     points: [
       "Expert team with a consistent and high-quality delivery track record",
       "Transparent communication at every stage of development",
@@ -46,7 +46,7 @@ const id = {
   nav: { portfolio: "Portofolio", testimonials: "Testimoni", contact: "Kontak" },
   hero: {
     defaultTitle: "Wujudkan Website Impian Anda Bersama Heeve",
-    defaultDesc: "Heeve is a software house focused on developing innovative, intuitive, and user-experience-oriented websites, helping businesses deliver effective and sustainable digital solutions.",
+    defaultDesc: "Heeve adalah software house yang berfokus pada pengembangan website inovatif, intuitif, dan berorientasi pada pengalaman pengguna, membantu bisnis menghadirkan solusi digital yang efektif dan berkelanjutan.",
     cta: "Dapatkan Konsultasi Gratis",
   },
   // Contact email for ID locale
