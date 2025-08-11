@@ -4,7 +4,7 @@ const en = {
   nav: { portfolio: "Portfolio", testimonials: "Testimonials", contact: "Contact" },
   hero: {
     defaultTitle: "Build your dream website with Heeve",
-    defaultDesc: "Heeve is a software house specializing in innovative, user-friendly websites.",
+    defaultDesc: "Heeve is a software house focused on developing innovative, intuitive, and user-experience-oriented websites, helping businesses deliver effective and sustainable digital solutions.",
     cta: "Get Free Consultation",
   },
   // Contact email for EN locale
@@ -13,7 +13,7 @@ const en = {
   contactWhatsapp: "6281234567890",
   about: {
     title: "About Heeve",
-    content: "Heeve is a software house focused on developing innovative, intuitive, and user-experience-oriented websites, helping businesses deliver effective and sustainable digital solutions.",
+    content: "We help businesses deliver fast, responsive, secure, and captivating web experiences, blending modern technology with user-focused design.",
     points: [
       "Expert team with a consistent and high-quality delivery track record",
       "Transparent communication at every stage of development",
