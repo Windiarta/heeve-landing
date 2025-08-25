@@ -24,9 +24,18 @@ const en = {
   services: {
     title: "Our Services",
     items: [
-      { title: "Website Development", desc: "Corporate, landing pages, POS, and custom web apps." },
-      { title: "Mobile App Development", desc: "Custom mobile app development (Android & iOS) for your business needs." },
-      { title: "AI-Based System", desc: "AI-based system development for automation and efficiency improvement." },
+      { 
+        title: "Digital Marketing", 
+        desc: "Comprehensive digital marketing solutions that help your brand grow online. From SEO and social media to performance ads and content strategy, we drive measurable results and stronger customer engagement." 
+      },
+      { 
+        title: "System Development", 
+        desc: "End-to-end system development services tailored to your business needs. We design and build scalable, secure, and reliable applications that improve efficiency and support long-term growth." 
+      },
+      { 
+        title: "AI-Based System", 
+        desc: "Smart AI-powered solutions to transform your business. From intelligent automation to predictive analytics, we deliver innovative systems that boost decision-making and unlock new opportunities." 
+      }
     ],
   },
   portfolio: { title: "Project Portfolio", view: "View Project" },
@@ -66,9 +75,18 @@ const id = {
   services: {
     title: "Layanan Kami",
     items: [
-      { title: "Website", desc: "Company profile, landing page, POS, hingga web app kustom." },
-      { title: "Aplikasi Mobile", desc: "Pembuatan aplikasi mobile (Android & iOS) untuk kebutuhan bisnis Anda." },
-      { title: "Sistem Berbasis AI", desc: "Pengembangan sistem berbasis AI untuk otomatisasi dan peningkatan efisiensi." },
+      { 
+        title: "Digital Marketing", 
+        desc: "Solusi digital marketing terintegrasi untuk mengembangkan brand Anda secara online. Mulai dari SEO, media sosial, iklan berbayar, hingga strategi konten—kami menghadirkan hasil nyata dan meningkatkan interaksi pelanggan." 
+      },
+      { 
+        title: "System Development", 
+        desc: "Layanan pengembangan sistem end-to-end yang dirancang sesuai kebutuhan bisnis Anda. Kami membangun aplikasi yang skalabel, aman, dan andal untuk meningkatkan efisiensi serta mendukung pertumbuhan jangka panjang." 
+      },
+      { 
+        title: "AI-Based System", 
+        desc: "Solusi cerdas berbasis AI untuk mentransformasi bisnis Anda. Dari otomasi pintar hingga analitik prediktif, kami menghadirkan inovasi yang memperkuat pengambilan keputusan dan membuka peluang baru." 
+      }
     ],
   },
   portfolio: { title: "Portofolio Proyek", view: "Lihat Proyek" },
