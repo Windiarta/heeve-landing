@@ -82,11 +82,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale?: 
           description={homepage?.description || dict.hero.defaultDesc}
           ctaText={homepage?.ctaText || dict.hero.cta}
           ctaLink={homepage?.ctaLink || '#contact'}
-          heroImage={
-            homepage?.heroImage
-              ? { src: urlForImage(homepage.heroImage).width(480).height(480).url(), alt: homepage.title }
-              : { src: heroDefault.src, alt: '' }
-          }
         />
         <AboutSection
           title={dict.about.title}

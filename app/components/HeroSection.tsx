@@ -9,13 +9,9 @@ interface HeroSectionProps {
   description: string
   ctaText: string
   ctaLink: string
-  heroImage?: {
-    src: string
-    alt: string
-  }
 }
 
-export default function HeroSection({ title, description, ctaText, ctaLink, heroImage }: HeroSectionProps) {
+export default function HeroSection({ title, description, ctaText, ctaLink }: HeroSectionProps) {
   return (
     <section id="home" className="relative flex flex-col-reverse md:flex-row items-center justify-between gap-8 py-16 md:py-24 px-4 md:px-16 bg-gradient-to-br from-blue-950/40 to-transparent">
       <motion.div
@@ -43,23 +39,7 @@ export default function HeroSection({ title, description, ctaText, ctaLink, hero
           </SmoothScrollLink>
         </motion.div>
       </motion.div>
-      {heroImage?.src && (
-        <motion.div
-          className="flex-1 flex justify-center md:justify-end mb-8 md:mb-0"
-          initial={{ opacity: 0, scale: 0.95, rotate: -2 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        >
-          <Image
-            src={heroImage.src}
-            alt={heroImage.alt || 'Heeve Hero'}
-            width={800}
-            height={800}
-            // className="rounded-2xl shadow-2xl object-cover w-[60vw] max-w-[320px] h-[60vw] max-h-[320px] md:w-[480px] md:h-[480px]"
-            priority
-          />
-        </motion.div>
-      )}
+      <Image src="/hero.svg" alt="Heeve Hero" width={1000} height={1000} />
     </section>
   )
 } 
