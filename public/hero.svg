@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <style>
+      /* Animation Keyframes */
+      .core-pulse { animation: pulse 3s infinite alternate ease-in-out; transform-origin: 400px 300px; }
+      .gear-spin { animation: spin 10s linear infinite; transform-origin: 600px 450px; }
+      .node-float-1 { animation: float 4s ease-in-out infinite alternate; transform-origin: 200px 150px; }
+      .node-float-2 { animation: float 5s ease-in-out infinite alternate-reverse; transform-origin: 600px 150px; }
+      .node-float-3 { animation: float 4.5s ease-in-out infinite alternate; transform-origin: 200px 450px; }
+      .node-float-4 { animation: float 5.5s ease-in-out infinite alternate-reverse; transform-origin: 600px 450px; }
+      .data-flow { stroke-dasharray: 8 12; animation: flow 20s linear infinite; }
+      
+      @keyframes pulse { 0% { transform: scale(0.95); filter: brightness(0.8); } 100% { transform: scale(1.05); filter: brightness(1.2); } }
+      @keyframes spin { 100% { transform: rotate(360deg); } }
+      @keyframes float { 0% { transform: translateY(0px); } 100% { transform: translateY(-15px); } }
+      @keyframes flow { to { stroke-dashoffset: -200; } }
+    </style>
+
+    <linearGradient id="brandBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+    <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2563eb" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#1d4ed8" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <g stroke="#3b82f6" stroke-width="2" opacity="0.3" class="data-flow">
+    <line x1="400" y1="300" x2="200" y2="150" />
+    <line x1="400" y1="300" x2="600" y2="150" />
+    <line x1="400" y1="300" x2="200" y2="450" />
+    <line x1="400" y1="300" x2="600" y2="450" />
+  </g>
+
+  <circle cx="200" cy="150" r="3" fill="#60a5fa">
+     <animate attributeName="cx" values="200; 400; 200" dur="3s" repeatCount="indefinite" />
+     <animate attributeName="cy" values="150; 300; 150" dur="3s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="600" cy="150" r="3" fill="#60a5fa">
+     <animate attributeName="cx" values="600; 400; 600" dur="4s" repeatCount="indefinite" />
+     <animate attributeName="cy" values="150; 300; 150" dur="4s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="200" cy="450" r="3" fill="#60a5fa">
+     <animate attributeName="cx" values="200; 400; 200" dur="3.5s" repeatCount="indefinite" />
+     <animate attributeName="cy" values="450; 300; 450" dur="3.5s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="600" cy="450" r="3" fill="#60a5fa">
+     <animate attributeName="cx" values="600; 400; 600" dur="4.5s" repeatCount="indefinite" />
+     <animate attributeName="cy" values="450; 300; 450" dur="4.5s" repeatCount="indefinite" />
+  </circle>
+
+  <g class="core-pulse">
+    <circle cx="400" cy="300" r="80" fill="url(#coreGlow)" />
+    <polygon points="400,240 452,270 452,330 400,360 348,330 348,270" fill="#0f172a" stroke="url(#brandBlue)" stroke-width="3"/>
+    <polygon points="400,250 443,275 443,325 400,350 357,325 357,275" fill="url(#brandBlue)" opacity="0.1" stroke="#60a5fa" stroke-width="1"/>
+    <circle cx="400" cy="300" r="4" fill="#ffffff" />
+    <circle cx="380" cy="285" r="2" fill="#94a3b8" />
+    <circle cx="420" cy="315" r="2" fill="#94a3b8" />
+    <text x="400" y="340" font-family="sans-serif" font-weight="800" font-size="14" fill="#ffffff" letter-spacing="2" text-anchor="middle">CORE</text>
+  </g>
+
+  <g class="node-float-1">
+    <circle cx="200" cy="150" r="40" fill="#0f172a" stroke="#3b82f6" stroke-width="2"/>
+    <rect x="182" y="145" width="8" height="20" fill="#60a5fa" rx="2"/>
+    <rect x="196" y="130" width="8" height="35" fill="#3b82f6" rx="2"/>
+    <rect x="210" y="150" width="8" height="15" fill="#93c5fd" rx="2"/>
+    <text x="200" y="215" font-family="sans-serif" font-weight="600" font-size="13" fill="#94a3b8" text-anchor="middle">Marketing</text>
+  </g>
+
+  <g class="node-float-2">
+    <circle cx="600" cy="150" r="40" fill="#0f172a" stroke="#3b82f6" stroke-width="2"/>
+    <circle cx="600" cy="140" r="4" fill="#60a5fa"/>
+    <circle cx="585" cy="155" r="4" fill="#3b82f6"/>
+    <circle cx="615" cy="155" r="4" fill="#93c5fd"/>
+    <line x1="598" y1="144" x2="588" y2="152" stroke="#60a5fa" stroke-width="2"/>
+    <line x1="602" y1="144" x2="612" y2="152" stroke="#60a5fa" stroke-width="2"/>
+    <line x1="589" y1="155" x2="611" y2="155" stroke="#3b82f6" stroke-width="2"/>
+    <text x="600" y="215" font-family="sans-serif" font-weight="600" font-size="13" fill="#94a3b8" text-anchor="middle">Intelligence</text>
+  </g>
+
+  <g class="node-float-3">
+    <circle cx="200" cy="450" r="40" fill="#0f172a" stroke="#3b82f6" stroke-width="2"/>
+    <path d="M 185 450 L 215 450 M 185 440 L 215 440" stroke="#60a5fa" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="192" cy="445" r="3" fill="#ffffff"/>
+    <circle cx="208" cy="445" r="3" fill="#ffffff"/>
+    <text x="200" y="515" font-family="sans-serif" font-weight="600" font-size="13" fill="#94a3b8" text-anchor="middle">Integration</text>
+  </g>
+
+  <g class="node-float-4">
+    <circle cx="600" cy="450" r="40" fill="#0f172a" stroke="#3b82f6" stroke-width="2"/>
+    <g class="gear-spin">
+       <circle cx="600" cy="450" r="14" fill="none" stroke="#3b82f6" stroke-width="5"/>
+       <line x1="600" y1="428" x2="600" y2="472" stroke="#60a5fa" stroke-width="5" stroke-linecap="round"/>
+       <line x1="578" y1="450" x2="622" y2="450" stroke="#60a5fa" stroke-width="5" stroke-linecap="round"/>
+       <line x1="584" y1="434" x2="616" y2="466" stroke="#93c5fd" stroke-width="5" stroke-linecap="round"/>
+       <line x1="584" y1="466" x2="616" y2="434" stroke="#93c5fd" stroke-width="5" stroke-linecap="round"/>
+       <circle cx="600" cy="450" r="7" fill="#0f172a"/>
+    </g>
+    <text x="600" y="515" font-family="sans-serif" font-weight="600" font-size="13" fill="#94a3b8" text-anchor="middle">Automation</text>
+  </g>
+</svg>

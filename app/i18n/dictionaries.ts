@@ -3,7 +3,7 @@ import { Locale } from "./config"
 const en = {
   nav: { portfolio: "Portfolio", testimonials: "Testimonials", contact: "Contact" },
   hero: {
-    defaultTitle: "Build your dream website with Heeve",
+    defaultTitle: "Build your Digital Solution with Heeve",
     defaultDesc: "Heeve is a software house focused on developing innovative, intuitive, and user-experience-oriented websites, helping businesses deliver effective and sustainable digital solutions.",
     cta: "Get Free Consultation",
   },
@@ -54,7 +54,7 @@ const en = {
 const id = {
   nav: { portfolio: "Portofolio", testimonials: "Testimoni", contact: "Kontak" },
   hero: {
-    defaultTitle: "Wujudkan Website Impian Anda Bersama Heeve",
+    defaultTitle: "Wujudkan Solusi Digital Anda Bersama Heeve",
     defaultDesc: "Heeve adalah software house yang berfokus pada pengembangan website inovatif, intuitif, dan berorientasi pada pengalaman pengguna, membantu bisnis menghadirkan solusi digital yang efektif dan berkelanjutan.",
     cta: "Dapatkan Konsultasi Gratis",
   },
