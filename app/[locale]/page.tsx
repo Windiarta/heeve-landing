@@ -6,6 +6,7 @@ import TestimonialsSection, { TestimonialItem } from '../components/Testimonials
 import ContactForm from '../components/ContactForm'
 import AboutSection from '../components/AboutSection'
 import ServicesSection from '../components/ServicesSection'
+import PricingSection from '../components/PricingSection'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { Metadata } from 'next'
@@ -65,6 +66,36 @@ async function getTestimonials(): Promise<TestimonialItem[]> {
   }))
 }
 
+async function getPricingPlans(locale: Locale) {
+  try {
+    const data = await client.fetch(
+      groq`*[_type == "pricingPlan" && locale == $locale] | order(order asc){
+        name, targetUser, pageCount, design, technology, databaseCms, paymentIntegration, aiFeatures, maintenanceSupport, domain, price, recommended, order
+      }`,
+      { locale }
+    )
+    return data || []
+  } catch (error) {
+    console.error("Error fetching pricing plans from Sanity:", error)
+    return []
+  }
+}
+
+async function getAddOnFeatures(locale: Locale) {
+  try {
+    const data = await client.fetch(
+      groq`*[_type == "addOnFeature" && locale == $locale] | order(order asc){
+        category, feature, price, order
+      }`,
+      { locale }
+    )
+    return data || []
+  } catch (error) {
+    console.error("Error fetching add-ons from Sanity:", error)
+    return []
+  }
+}
+
 export default async function HomePage({ params }: { params: Promise<{ locale?: string }> }) {
   const resolved = await params
   const locale: Locale = isLocale(resolved?.locale ?? '') ? (resolved!.locale as Locale) : 'id'
@@ -72,6 +103,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale?: 
   const homepage = await getHomepage()
   const portfolio = await getPortfolio()
   const testimonials = await getTestimonials()
+
+  const rawPlans = await getPricingPlans(locale)
+  const plans = rawPlans.length > 0 ? rawPlans : dict.pricing.plans
+
+  const rawAddOns = await getAddOnFeatures(locale)
+  const addOns = rawAddOns.length > 0 ? rawAddOns : dict.pricing.addOnsList
 
   return (
     <>
@@ -91,6 +128,27 @@ export default async function HomePage({ params }: { params: Promise<{ locale?: 
         <ServicesSection
           title={dict.services.title}
           items={(homepage?.services as { title: string; desc: string }[] | undefined) ?? dict.services.items}
+        />
+        <PricingSection
+          title={dict.pricing.title}
+          subtitle={dict.pricing.subtitle}
+          tableLabels={{
+            pageCount: dict.pricing.table.pageCount,
+            design: dict.pricing.table.design,
+            technology: dict.pricing.table.technology,
+            databaseCms: dict.pricing.table.databaseCms,
+            paymentIntegration: dict.pricing.table.paymentIntegration,
+            aiFeatures: dict.pricing.table.aiFeatures,
+            maintenanceSupport: dict.pricing.table.maintenanceSupport,
+            domain: dict.pricing.table.domain
+          }}
+          addOnsTitle={dict.pricing.addOns.title}
+          addOnsSubtitle={dict.pricing.addOns.subtitle}
+          ctaChoose={dict.pricing.cta.choose}
+          ctaContact={dict.pricing.cta.contact}
+          plans={plans}
+          addOns={addOns}
+          locale={locale}
         />
         <PortfolioSection projects={portfolio} title={dict.portfolio.title} viewText={dict.portfolio.view} />
         <TestimonialsSection testimonials={testimonials} title={dict.testimonials.title} />

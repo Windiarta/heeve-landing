@@ -23,6 +23,23 @@ export default function Header() {
     return `/${loc}${pathname}`
   }
 
+  const isPricingPage = pathname?.includes('/pricing')
+
+  const NavLink = ({ href, children, className, onClick }: { href: string; children: React.ReactNode; className?: string; onClick?: () => void }) => {
+    if (isPricingPage && href.startsWith('#')) {
+      return (
+        <Link href={`/${currentLocale}${href === '#home' ? '' : href}`} className={className} onClick={onClick}>
+          {children}
+        </Link>
+      )
+    }
+    return (
+      <SmoothScrollLink href={href} className={className} onClick={onClick}>
+        {children}
+      </SmoothScrollLink>
+    )
+  }
+
   return (
     <header className="fixed top-0 left-0 w-full z-30 bg-black/60 backdrop-blur border-b border-white/10">
       <nav className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-12 py-3">
@@ -40,12 +57,13 @@ export default function Header() {
             {isOpen ? '✕' : '☰'}
           </button>
           <ul className="hidden sm:flex gap-6 text-gray-200 font-medium">
-            <li><SmoothScrollLink href="#home" className="hover:text-blue-400 transition-colors">{currentLocale === 'id' ? 'Beranda' : 'Home'}</SmoothScrollLink></li>
-            <li><SmoothScrollLink href="#about" className="hover:text-blue-400 transition-colors">{currentLocale === 'id' ? 'Tentang' : 'About'}</SmoothScrollLink></li>
-            <li><SmoothScrollLink href="#services" className="hover:text-blue-400 transition-colors">{currentLocale === 'id' ? 'Layanan' : 'Services'}</SmoothScrollLink></li>
-            <li><SmoothScrollLink href="#portfolio" className="hover:text-blue-400 transition-colors">{currentLocale === 'id' ? 'Portofolio' : 'Portfolio'}</SmoothScrollLink></li>
-            <li><SmoothScrollLink href="#testimonials" className="hover:text-blue-400 transition-colors">{currentLocale === 'id' ? 'Testimoni' : 'Testimonials'}</SmoothScrollLink></li>
-            <li><SmoothScrollLink href="#contact" className="hover:text-blue-400 transition-colors">{currentLocale === 'id' ? 'Kontak' : 'Contact'}</SmoothScrollLink></li>
+            <li><NavLink href="#home" className="hover:text-blue-400 transition-colors">{currentLocale === 'id' ? 'Beranda' : 'Home'}</NavLink></li>
+            <li><NavLink href="#about" className="hover:text-blue-400 transition-colors">{currentLocale === 'id' ? 'Tentang' : 'About'}</NavLink></li>
+            <li><NavLink href="#services" className="hover:text-blue-400 transition-colors">{currentLocale === 'id' ? 'Layanan' : 'Services'}</NavLink></li>
+            <li><NavLink href="#pricing" className="hover:text-blue-400 transition-colors">{currentLocale === 'id' ? 'Harga' : 'Pricing'}</NavLink></li>
+            <li><NavLink href="#portfolio" className="hover:text-blue-400 transition-colors">{currentLocale === 'id' ? 'Portofolio' : 'Portfolio'}</NavLink></li>
+            <li><NavLink href="#testimonials" className="hover:text-blue-400 transition-colors">{currentLocale === 'id' ? 'Testimoni' : 'Testimonials'}</NavLink></li>
+            <li><NavLink href="#contact" className="hover:text-blue-400 transition-colors">{currentLocale === 'id' ? 'Kontak' : 'Contact'}</NavLink></li>
           </ul>
 
           <div className="flex items-center gap-2">
@@ -62,18 +80,27 @@ export default function Header() {
       {isOpen && (
         <div className="sm:hidden border-t border-white/10 bg-black/70 backdrop-blur">
           <div className="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-3 text-white">
-            <SmoothScrollLink href="#home" className="py-1" onClick={() => setIsOpen(false)}>
+            <NavLink href="#home" className="py-1" onClick={() => setIsOpen(false)}>
               {currentLocale === 'id' ? 'Beranda' : 'Home'}
-            </SmoothScrollLink>
-            <SmoothScrollLink href="#portfolio" className="py-1" onClick={() => setIsOpen(false)}>
+            </NavLink>
+            <NavLink href="#about" className="py-1" onClick={() => setIsOpen(false)}>
+              {currentLocale === 'id' ? 'Tentang' : 'About'}
+            </NavLink>
+            <NavLink href="#services" className="py-1" onClick={() => setIsOpen(false)}>
+              {currentLocale === 'id' ? 'Layanan' : 'Services'}
+            </NavLink>
+            <NavLink href="#pricing" className="py-1" onClick={() => setIsOpen(false)}>
+              {currentLocale === 'id' ? 'Harga' : 'Pricing'}
+            </NavLink>
+            <NavLink href="#portfolio" className="py-1" onClick={() => setIsOpen(false)}>
               {currentLocale === 'id' ? 'Portofolio' : 'Portfolio'}
-            </SmoothScrollLink>
-            <SmoothScrollLink href="#testimonials" className="py-1" onClick={() => setIsOpen(false)}>
+            </NavLink>
+            <NavLink href="#testimonials" className="py-1" onClick={() => setIsOpen(false)}>
               {currentLocale === 'id' ? 'Testimoni' : 'Testimonials'}
-            </SmoothScrollLink>
-            <SmoothScrollLink href="#contact" className="py-1" onClick={() => setIsOpen(false)}>
+            </NavLink>
+            <NavLink href="#contact" className="py-1" onClick={() => setIsOpen(false)}>
               {currentLocale === 'id' ? 'Kontak' : 'Contact'}
-            </SmoothScrollLink>
+            </NavLink>
           </div>
         </div>
       )}
